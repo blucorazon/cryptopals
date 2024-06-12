@@ -20,7 +20,7 @@ print(type(hex_string))
 print(bytearray_result)
 print(type(bytearray_result))
 
-# Decode hex with binascii module and unhexlify() function
+# Decode hex with binascii module and unhexlify() functions
 hex_string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
 bytes_result = binascii.unhexlify(hex_string)
 
