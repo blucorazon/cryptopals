@@ -1,29 +1,67 @@
 """
 Helpful Functions Through the Cryptopals Challenges
 """
-
-"""Functions that decode a hex string into bytes """
-import binascii
 # Decode hex with bytes.fromhex() function
-hex_string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
-bytes_result = bytes.fromhex(hex_string)
-
-print(type(hex_string))
-print(bytes_result)
-print(type(bytes_result))
+def hex_to_bytes(string):
+    return  bytes.fromhex(string)
 
 # Decode hex with bytearray.fromhex() function
-hex_string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
-bytearray_result = bytearray.fromhex(hex_string)
+def hex_to_bytearray(string):
+    return bytearray.fromhex(string)
 
-print(type(hex_string))
-print(bytearray_result)
-print(type(bytearray_result))
+def single_byte_xor(byte_array, key):
+    return bytes([a ^ key for a in byte_array])
 
-# Decode hex with binascii module and unhexlify() functions
-hex_string = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
-bytes_result = binascii.unhexlify(hex_string)
+def test_single_byte_xor():
+    plaintext = "hello"
+    key = 42
+    byte_array = bytearray(plaintext, 'utf-8')
 
-print(type(hex_string))
-print(bytes_result)
-print(type(bytes_result))
+    # Encrypt the plaintext
+    encrypted = single_byte_xor(byte_array, key)
+
+    # Decrypt the encrypted message 
+    decrypted = single_byte_xor(encrypted, key)
+
+    if decrypted == byte_array: 
+        print("Test Passed.")
+    else:
+        print("Test failed.")
+
+def scorePlaintext(plaintext):
+    letterFrequency = {
+        'E' : 12.0,
+        'T' : 9.10,
+        'A' : 8.12,
+        'O' : 7.68,
+        'I' : 7.31,
+        'N' : 6.95,
+        'S' : 6.28,
+        'R' : 6.02,
+        'H' : 5.92,
+        'D' : 4.32,
+        'L' : 3.98,
+        'U' : 2.88,
+        'C' : 2.71,
+        'M' : 2.61,
+        'F' : 2.30,
+        'Y' : 2.11,
+        'W' : 2.09,
+        'G' : 2.03,
+        'P' : 1.82,
+        'B' : 1.49,
+        'V' : 1.11,
+        'K' : 0.69,
+        'X' : 0.17,
+        'Q' : 0.11,
+        'J' : 0.10,
+        'Z' : 0.07,
+        ' ' : 15.0
+    }
+    score = 0
+    
+    for character in plaintext:
+        if character.upper() in letterFrequency:
+            frequency = letterFrequency.get(character.upper(), 0)
+            score += frequency
+    return score
