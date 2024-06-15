@@ -76,3 +76,28 @@ def repeating_key_xor(byte_array, key):
         if i >= len(key):
             i = 0
     return arr
+
+def hamming_distance_strings(str1, str2):
+    count = 0
+    if len(str1) == len(str2):
+        for i in range(len(str1)):
+            if str1[i] != str2[i]:
+                count += 1  
+    else:
+        raise ValueError('The strings must be equal length')
+    return count
+
+def hamming_distance(str1, str2):
+    if len(str1) != len(str2):
+        raise ValueError('The strings must be equal length')
+
+    bytes1 = str1.encode('utf-8')
+    bytes2 = str2.encode('utf-8')
+
+    count = 0
+
+    for b1, b2 in zip(bytes1, bytes2):
+        xor = b1 ^ b2
+        count += bin(xor).count('1')
+    
+    return count
