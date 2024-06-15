@@ -65,3 +65,14 @@ def scorePlaintext(plaintext):
             frequency = letterFrequency.get(character.upper(), 0)
             score += frequency
     return score
+
+def repeating_key_xor(byte_array, key):
+    i = 0
+    arr = bytearray()
+    for char in byte_array:
+        xor = char ^ key[i]
+        arr.append(xor)
+        i += 1
+        if i >= len(key):
+            i = 0
+    return arr
