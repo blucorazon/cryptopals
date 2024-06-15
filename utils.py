@@ -77,16 +77,6 @@ def repeating_key_xor(byte_array, key):
             i = 0
     return arr
 
-def hamming_distance_strings(str1, str2):
-    count = 0
-    if len(str1) == len(str2):
-        for i in range(len(str1)):
-            if str1[i] != str2[i]:
-                count += 1  
-    else:
-        raise ValueError('The strings must be equal length')
-    return count
-
 def hamming_distance(str1, str2):
     if len(str1) != len(str2):
         raise ValueError('The strings must be equal length')
