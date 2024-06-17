@@ -37,12 +37,6 @@ and a block that is the second byte of every block, and so on.
 the repeating-key XOR key byte for that block. Put them together and you have the key.
 """
 import base64
-import sys
-import os
-
-# Add parent directory to system path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from utils.utils import hamming_distance
 
 with open("6.txt", "r") as file:

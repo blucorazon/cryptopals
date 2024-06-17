@@ -19,9 +19,6 @@ It should come out to:
 a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f
 """
 import binascii
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.utils import repeating_key_xor
 
 def format_with_line_breaks(hex_str, line_length=60):

@@ -12,12 +12,6 @@ You can do this by hand. But don't: write code to do it for you.
 How? Devise some method for "scoring" a piece of English plaintext. Character frequency 
 is a good metric. Evaluate each output and choose the one with the best score.
 """
-import sys
-import os
-
-# Add parent directory to system path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from utils.utils import hex_to_bytearray
 from utils.utils import scorePlaintext
 from utils.utils import single_byte_xor
