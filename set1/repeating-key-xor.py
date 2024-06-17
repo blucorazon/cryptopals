@@ -22,7 +22,7 @@ import binascii
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils import repeating_key_xor
+from utils.utils import repeating_key_xor
 
 def format_with_line_breaks(hex_str, line_length=60):
     return '\n'.join([hex_str[i:i+line_length] for i in range(0, len(hex_str), line_length)])

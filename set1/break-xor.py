@@ -36,21 +36,20 @@ and a block that is the second byte of every block, and so on.
 8. For each block, the single-byte XOR key that produces the best looking histogram is 
 the repeating-key XOR key byte for that block. Put them together and you have the key.
 """
+import base64
 import sys
 import os
 
 # Add parent directory to system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from utils import hamming_distance
+from utils.utils import hamming_distance
 
-# TODO: Read the encrypted data from the file
+with open("6.txt", "r") as file:
+    # Read the base64-encoded data from the file
+    base64_data = file.read()
 
+# Decode base64 to binary and store in byte array
+byte_array = bytearray(base64.b64decode(base64_data))
 
-# TODO: Compute the Hamming distance between two strings
-str1 = 'this is a test'
-str2 = 'wokka wokka!!!'
-
-print(f"Hamming distance: {hamming_distance(str1, str2)}")
-
-KEYSIZE = list(range(2, 41))
+print(byte_array)

@@ -18,9 +18,9 @@ import os
 # Add parent directory to system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from utils import hex_to_bytearray
-from utils import scorePlaintext
-from utils import single_byte_xor
+from utils.utils import hex_to_bytearray
+from utils.utils import scorePlaintext
+from utils.utils import single_byte_xor
 
 # Decode hex string into byte array
 hexString = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"

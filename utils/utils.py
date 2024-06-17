@@ -84,3 +84,18 @@ def hamming_distance(str1: bytes, str2: bytes) -> int:
     for byte1, byte2 in zip(str1, str2):
         distance += bin(byte1 ^ byte2).count('1')
     return distance
+
+def find_key_length(byte_array: bytes) -> int:
+    smallest_distance = len(byte_array)
+
+    for i in range(2, 41):
+        chunk1 = byte_array[0:i]
+        chunk2 = byte_array[i:chunk1 + i]
+
+        edit_distance = hamming_distance(chunk1, chunk2)
+        normalized_distance = edit_distance / i
+
+        if normalized_distance < smallest_distance:
+            smallest_distance = normalized_distance
+            
+    return smallest_distance
