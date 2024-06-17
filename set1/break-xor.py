@@ -53,4 +53,4 @@ str2 = 'wokka wokka!!!'
 
 print(f"Hamming distance: {hamming_distance(str1, str2)}")
 
-KEYSIZE = 
+KEYSIZE = list(range(2, 41))
