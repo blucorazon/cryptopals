@@ -4,7 +4,7 @@ from utils import hamming_distance
 class TestHammingDistance(unittest.TestCase):
     def test_hamming_distance(self):
         test_cases = {
-            ("this is a test", "wokka wokka!!!"): 37
+            (b"this is a test", b"wokka wokka!!!"): 37
         }
 
         for (str1, str2), expected in test_cases.items():
