@@ -11,3 +11,5 @@ __pycache__/
 set1/4.txt
 
 *.txt
+
+cryptopals.egg-info/*
